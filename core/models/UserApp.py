@@ -20,5 +20,5 @@ class UserApp(models.Model):
         return UserApp.objects.create(
             user=user_app,
             fullname=kargs['fullname'],
-            phone=['phone'],
+            phone=kargs['phone'],
         )

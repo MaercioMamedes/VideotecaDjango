@@ -1,3 +1,9 @@
 from django.contrib import admin
+from core.models import UserApp
 
-# Register your models here.
+
+class ListingUsers(admin.ModelAdmin):
+    list_display = ('id', 'fullname')
+
+
+admin.site.register(UserApp, ListingUsers)
