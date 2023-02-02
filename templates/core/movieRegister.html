@@ -17,4 +17,17 @@
     </form> 
 </section>
 
+<section class="container movies-grid" >
+    {% if list_movie %}
+        {% for movie in list_movie %}
+            <div>
+                <h5>{{ movie.title }}</h5>
+                <figure>
+                    <img class="poster-movie" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt="" srcset="">
+                </figure>
+            </div>
+        {% endfor %}
+    {% endif %}
+</section>
+
 {% endblock %}
