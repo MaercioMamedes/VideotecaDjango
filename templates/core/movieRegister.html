@@ -25,8 +25,17 @@
                 <figure>
                     <img class="poster-movie" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt="" srcset="">
                 </figure>
+                
+                <form action="{% url 'core:add_movie' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="movieDB-id" value="{{ movie.id }}">
+                    <input type="hidden" name="movie-title" value="{{ movie.title }}">
+                    <input type="hidden" name="overview" value="{{ movie.overview }}">
+                    <input type="hidden" name="date-release" value="{{ movie.release_date }}">
+                    <input type="hidden" name="url-image" value="{{ movie.poster_path }}">
 
-                <button class="btn btn-success">Adicionar</button>
+                    <input type="submit" value="adicionar" class="btn btn-success">
+                </form>
             </div>
         {% endfor %}
     {% endif %}

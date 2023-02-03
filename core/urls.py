@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import user_register, index, login, authenticate, movie_register
+from core.views import user_register, index, login, authenticate, movie_register, add_movie, logout
 
 app_name = 'core'
 urlpatterns = [
@@ -8,4 +8,6 @@ urlpatterns = [
     path('login', login, name='login'),
     path('auth', authenticate, name='authenticate'),
     path('cadastrar-filme', movie_register, name='movie_register'),
+    path('adicionar-filme', add_movie, name='add_movie'),
+    path('logout', logout, name='logout'),
 ]

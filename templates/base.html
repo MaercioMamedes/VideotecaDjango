@@ -26,12 +26,38 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'core:user_register' %}">Cadastrar Usuário<span class="sr-only">(Página atual)</span></a>
                     </li>
+
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'core:movie_register' %}">Cadastrar Filme<span class="sr-only">(Página atual)</span></a>
+                        <a class="nav-link" href="{% url 'core:user_register' %}">Usuários Cadastrados<span class="sr-only">(Página atual)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Login<span class="sr-only">(Página atual)</span></a>
-                    </li>
+
+                    
+                    {% if user.is_authenticated %}
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'core:movie_register' %}">Cadastrar Filme<span class="sr-only">(Página atual)</span></a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Meus filmes favoritos<span class="sr-only">(Página atual)</span></a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'core:logout' %}">Logout<span class="sr-only">(Página atual)</span></a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Usuário Logado: <b>{{ user.username }}</b><span class="sr-only">(Página atual)</span></a>
+                        </li>
+                    
+                    {% else %}
+
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'core:login' %}">Login<span class="sr-only">(Página atual)</span></a>
+                        </li>
+
+                    {% endif %}
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">

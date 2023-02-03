@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
 from core.forms import LoginForm
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -24,4 +24,4 @@ def authenticate(request):
 
         if user is not None:
             auth.login(request, user)
-            return HttpResponse("Login realizado com sucesso")
+            return redirect('core:index')
