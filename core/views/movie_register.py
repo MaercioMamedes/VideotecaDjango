@@ -13,7 +13,10 @@ def movie_register(request):
         movie_title = request.POST['movie']
         client = ClientTheMovieDB()
         list_movie = client.search_movie(movie_title)['results']
-        context = {'list_movie': list_movie}
+        context = {
+            'list_movie': list_movie,
+            'title_page': 'Buscar filme no The MovieDB',
+        }
         return render(request, 'core/movieRegister.html', context)
 
 

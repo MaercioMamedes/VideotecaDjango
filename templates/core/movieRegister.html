@@ -12,7 +12,7 @@
           <input class="form-control" type="text" name="movie" id="movie">
         </div>
 
-        <input type="submit" value="logar" class="btn btn-primary">
+        <input type="submit" value="buscar" class="btn btn-primary">
 
     </form> 
 </section>
@@ -20,11 +20,13 @@
 <section class="container movies-grid" >
     {% if list_movie %}
         {% for movie in list_movie %}
-            <div>
-                <h5>{{ movie.title }}</h5>
+            <div class="movie-card">
+                <h5 class="title-card" >{{ movie.title }}</h5>
                 <figure>
                     <img class="poster-movie" src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt="" srcset="">
                 </figure>
+
+                <button class="btn btn-success">Adicionar</button>
             </div>
         {% endfor %}
     {% endif %}
