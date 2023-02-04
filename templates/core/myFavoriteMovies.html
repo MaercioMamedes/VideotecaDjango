@@ -2,16 +2,19 @@
 
 {% block content %}
 
-<section class="container movies-grid" >
+<section class="container movies-grid">
     {% if list_movie %}
         {% for movie in list_movie %}
-            <div class="movie-card">
-                <h5 class="title-card" >{{ movie.movie_title }}</h5>
-                <figure>
-                    <img class="poster-movie" src="{{ movie.url_image }}" alt="" srcset="">
-                </figure>
-                
-            </div>
+
+                <div class="movie-card">
+                    <h5 class="title-card">{{ movie.movie_title }}</h5>
+                    <figure>
+                        <img class="poster-movie" src="{{ movie.url_image }}" alt="" srcset="">
+                    </figure>
+                    <button class="btn btn-success" >Editar</button>
+                    <button class="btn btn-danger">Excluir</button>
+                    <a href="{% url 'core:get_movie' movie.id %}"><button class="btn btn-primary">Detalhes</button></a>
+                </div>
         {% endfor %}
     {% endif %}
 </section>

@@ -1,3 +1,7 @@
+.movie{
+    text-align: center;
+}
+
 .poster-movie{
     height: 250px;
 }
@@ -26,6 +30,9 @@
     box-shadow: #919192 2px 2px 2px;
 }
 
+p#overview{
+    text-align: justify;
+}
 main{
     text-align: center;
 }

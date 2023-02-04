@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section  class="container" >
+        <h5 class="title-card">{{ movie.movie_title }}</h5>
+        <figure>
+            <img class="poster-movie" src="{{ movie.url_image }}" alt="" srcset="">
+        </figure>
+
+    <div>
+        <p>Data de lançamento: {{ movie.date }}</p>
+        <p style="text-align: justify;">{{ movie.overview }}</p>
+    </div>
+
+</section>
+
+{% endblock %}
