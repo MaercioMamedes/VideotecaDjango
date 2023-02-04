@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container movies-grid" >
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome do usuário</th>
+            <th scope="col">Quantidade de Filmes</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        {% for user in list_users %}
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.qtd_movie }}</td>
+          </tr>
+        
+          {% endfor %}
+        </tbody>
+      </table>
+</section>
+
+{% endblock %}
