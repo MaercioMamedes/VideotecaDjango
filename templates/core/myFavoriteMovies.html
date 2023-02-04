@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container movies-grid" >
+    {% if list_movie %}
+        {% for movie in list_movie %}
+            <div class="movie-card">
+                <h5 class="title-card" >{{ movie.movie_title }}</h5>
+                <figure>
+                    <img class="poster-movie" src="{{ movie.url_image }}" alt="" srcset="">
+                </figure>
+                
+            </div>
+        {% endfor %}
+    {% endif %}
+</section>
+
+{% endblock %}
