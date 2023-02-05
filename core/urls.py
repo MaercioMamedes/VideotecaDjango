@@ -1,6 +1,6 @@
 from django.urls import path
 from core.views import user_register, index, login, authenticate, movie_register, add_movie, logout, my_favorite_movies,\
-    get_users, get_movie, update_movie, get_profile_user
+    get_users, get_movie, update_movie, get_profile_user, update_user
 
 app_name = 'core'
 urlpatterns = [
@@ -16,4 +16,5 @@ urlpatterns = [
     path('filmes/<int:movie_id>/', get_movie, name='get_movie'),
     path('update-filme/<int:movie_id>/', update_movie, name='update_movie'),
     path('usuario/<int:user_id>/', get_profile_user, name='get_profile_user'),
+    path('update-user/', update_user, name='update_user'),
 ]

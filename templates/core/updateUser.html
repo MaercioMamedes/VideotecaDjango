@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+
+<section class="container col-8">
+
+    <form action="{% url 'core:update_user' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+
+            <label  for="fullname-id">Nome completo</label>
+            <input  class="form-control"type="text" name="fullname" id="fullname-id" value="{{ user_app.fullname }}">
+            
+            <label  for="username-id">Usuário</label>
+            <input  class="form-control"type="text" name="username" id="username-id" value="{{ user_app.user.username }}">
+
+            <label  for="email-id">email</label>
+            <input  class="form-control"type="text" name="email" id="email-id" value="{{ user_app.user.email }}">
+        
+            <label  for="phone-id">Celular</label>
+            <input  class="form-control"type="text" name="phone" id="phone-id" value="{{ user_app.phone }}">
+
+            <label for="password-id">Digite sua senha</label>
+            <input class="form-control" type="password" name="password" id="password-id" required><br>
+            
+
+            <input type="submit" value="salvar" class="btn btn-success" >
+            
+    </form> 
+    <a href="{% url 'core:index' %}"><p class="">MUDAR SENHA</p></a>
+</section>
+
+
+{% endblock %}
+
