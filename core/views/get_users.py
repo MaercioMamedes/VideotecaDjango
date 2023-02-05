@@ -12,7 +12,7 @@ def get_users(request):
 
     for user in users:
         movies = favorite_movie.filter(user=user)
-        list_users.append({'name':user.username, 'qtd_movie':len(movies)})
+        list_users.append({'user':user, 'qtd_movie':len(movies)})
 
     context = {
         'title_page': 'Usuários cadastrados',

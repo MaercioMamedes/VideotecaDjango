@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ user_app.fullname }}</h2>
+
+<section class="container movies-grid" >
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome do usuário</th>
+            <th scope="col">email</th>
+            <th scope="col">telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr>
+            <td>{{ user_app.user.username }}</td>
+            <td>{{ user_app.user.email}}</td>
+            <td>{{ user_app.phone}}</td>
+          </tr>
+    
+        </tbody>
+      </table>
+</section>
+
+<h3>Lista de filmes</h3>
+<section class="container movies-grid">
+
+    
+    {% if list_movie %}
+        {% for movie in list_movie %}
+
+                <div class="movie-card">
+                    <h5 class="title-card">{{ movie.movie_title }}</h5>
+                    <figure>
+                        <img class="poster-movie" src="{{ movie.url_image }}" alt="" srcset="">
+                    </figure>
+                       <a href="{% url 'core:get_movie' movie.id %}"><button class="btn btn-primary">Detalhes</button></a>
+                </div>
+        {% endfor %}
+    {% endif %}
+</section>
+
+{% endblock %}

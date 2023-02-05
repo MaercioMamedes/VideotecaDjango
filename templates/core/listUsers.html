@@ -14,7 +14,7 @@
         
         {% for user in list_users %}
           <tr>
-            <td>{{ user.name }}</td>
+           <td><a href="{% url 'core:get_profile_user' user.user.id %}">{{ user.user.username }}</a></td>
             <td>{{ user.qtd_movie }}</td>
           </tr>
         
