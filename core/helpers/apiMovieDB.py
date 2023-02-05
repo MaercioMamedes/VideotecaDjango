@@ -1,9 +1,12 @@
 import requests
+from dotenv import load_dotenv
+import os
 
 
 class ClientTheMovieDB:
     def __init__(self):
-        self.api_key = '328a263ac28892407a8153e3133e8a5c'
+        load_dotenv()
+        self.api_key = str(os.getenv('API_KEY'))
 
     def search_movie(self, title_movie):
         url_base = f'https://api.themoviedb.org/3/search/movie?api_key={self.api_key}&query={title_movie}&language=pt-BR'

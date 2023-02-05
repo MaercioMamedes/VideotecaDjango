@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from core.forms import LoginForm
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def login(request):
@@ -24,4 +25,9 @@ def authenticate(request):
 
         if user is not None:
             auth.login(request, user)
+            messages.success(request, 'Login realizado com sucesso')
             return redirect('core:index')
+
+        else:
+            messages.error(request, 'username ou senha inválidos')
+            return redirect('core:login')

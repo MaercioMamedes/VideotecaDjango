@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from core.forms import UserRegisterForm
 from core.models import UserApp
+from django.contrib import messages
 
 
 def user_register(request):
@@ -17,9 +18,9 @@ def user_register(request):
             'phone': form_post.data['phone'],
         }
 
-        UserApp.create_user_app(data)
-
-        return redirect('core:index')
+        user_app = UserApp.create_user_app(data)
+        messages.success(request, f'usuário {user_app.user.username} criado com sucesso')
+        return redirect('core:login')
 
     else:
         print(request.method)
