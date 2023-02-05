@@ -11,7 +11,7 @@
                     <figure>
                         <img class="poster-movie" src="{{ movie.url_image }}" alt="" srcset="">
                     </figure>
-                    <button class="btn btn-success" >Editar</button>
+                    <a href="{% url 'core:update_movie' movie.id %}"><button class="btn btn-success" >Editar</button></a>
                     <button class="btn btn-danger">Excluir</button>
                     <a href="{% url 'core:get_movie' movie.id %}"><button class="btn btn-primary">Detalhes</button></a>
                 </div>

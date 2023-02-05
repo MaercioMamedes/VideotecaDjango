@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container movie-update">
+
+    <section  class="container" >
+        <h5 class="title-card">{{ movie.movie_title }}</h5>
+        <figure>
+            <img class="poster-movie" src="{{ movie.url_image }}" alt="" srcset="">
+        </figure>
+
+    <div>
+        <p>Data de lançamento: {{ movie.date }}</p>
+
+        <form action="{% url 'core:update_movie' movie.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="textOverview">Sinopse do Filme</label>
+                <textarea class="form-control" id="textOverview" name="overview" wrap="hard" rows="10">
+                    {{ movie.overview }}
+                </textarea><br>
+                <input type="submit" value="Envia" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+
+</section>
+
+</section>
+
+{% endblock %}

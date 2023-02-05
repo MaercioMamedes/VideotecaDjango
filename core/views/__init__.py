@@ -7,3 +7,4 @@ from .logout import *
 from .my_favorite_movies import *
 from .get_users import *
 from .get_movie import *
+from .update_movie import *
